@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="de">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Kronkorken sammeln · Demoversion</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f1f5ef;color:#172f24;font:16px/1.5 system-ui}main,header div{width:min(1050px,calc(100% - 32px));margin:auto}header{background:#173e2e;color:white;padding:32px 0}h1,h2,p{margin:0 0 12px}.badge{color:#ffe098;font-weight:700}main{padding:24px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,265px),1fr));gap:12px}article,section{border:1px solid #c9d8cc;background:white;padding:16px;border-radius:12px}section{margin-bottom:20px}.filters{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px}label{display:grid;gap:4px}input,select,button{font:inherit;padding:8px;max-width:100%}button{background:#24563e;color:white;border:0;border-radius:6px;cursor:pointer}summary{cursor:pointer}
+</style>
+<header><div><p class="badge">DEMOVERSION · Ausschließlich fiktive Daten</p><h1>Kronkorken fürs Kinderhospiz e. V.</h1><p>Kleine Deckel. Große Hilfe.</p></div></header>
+<main>
+<section><h2>Sammelstellen finden</h2><p>Beispiele aus Berlin und Brandenburg. Diese Orte dienen nur zur Vorschau.</p>
+<div class="filters"><label>Name suchen<input id="query" type="search"></label><label>Region<select id="region"><option value="">Alle</option><option>Berlin</option><option>Brandenburg</option></select></label><label>Art<select id="kind"><option value="">Alle</option><option>Öffentliche Abgabestelle</option><option>Interne Sammelstelle</option></select></label></div>
+<p id="count" role="status"></p><div class="grid" id="cards"></div></section>
+<section><h2>Prüfablauf ausprobieren</h2><p>Die Statusänderung wird nur in diesem Browser gespeichert.</p><p id="state" role="status"></p><button id="next" type="button"></button> <button id="reset" type="button">Demo zurücksetzen</button></section>
+</main>
+<script>
+const stations = [
+ ['Radladen Musterstern','Berlin',true],['Nachbarschaftstreff Lindenfunke','Berlin',true],
+ ['Schule Wolkenbogen','Berlin',false],['Kita Regenperle','Berlin',false],
+ ['Dorfladen Korkenblick','Brandenburg',true],['Werkstatt Sonnenrad','Brandenburg',true],
+ ['Verein Havelstern','Brandenburg',true],['Schule Birkenfunke','Brandenburg',false]
+];
+const kindName = publicPlace => publicPlace ? 'Öffentliche Abgabestelle' : 'Interne Sammelstelle';
+const query = document.querySelector('#query');
+const region = document.querySelector('#region');
+const kind = document.querySelector('#kind');
+const cards = document.querySelector('#cards');
+function render() {
+ const matches = stations.filter(([name,place,publicPlace]) => name.toLowerCase().includes(query.value.trim().toLowerCase()) &&
+  (!region.value || place === region.value) && (!kind.value || kindName(publicPlace) === kind.value));
+ document.querySelector('#count').textContent = matches.length + ' Demo-Einträge';
+ cards.replaceChildren(...matches.map(([name,place,publicPlace]) => {
+  const card = document.createElement('article');
+  card.innerHTML = '<h3></h3><p></p><details><summary>Details</summary><p></p></details>';
+  card.querySelector('h3').textContent = name;
+  card.querySelector('p').textContent = place + ' · ' + kindName(publicPlace);
+  card.querySelector('details p').textContent = publicPlace ? 'Beispiel für eine öffentliche Abgabestelle. Standort frei erfunden.' : 'Interne Sammelstelle. Keine öffentliche Abgabe.';
+  return card;
+ }));
+}
+[query,region,kind].forEach(field=>field.addEventListener('input',render));
+const steps=['Neu','In regionaler Prüfung','An Anett weitergeleitet','In abschließender Prüfung','Freigegeben'];
+let stage=0;
+try {const saved=Number(localStorage.getItem('kronkorken-demo-stage')); if(Number.isInteger(saved) && steps[saved]) stage=saved;} catch {}
+const next=document.querySelector('#next');
+function showStage() {
+ document.querySelector('#state').textContent='Fiktiver Antrag · '+steps[stage];
+ next.hidden=stage===steps.length-1;
+ next.textContent=steps[stage+1] || '';
+}
+function setStage(value) {
+ stage=value;
+ try {localStorage.setItem('kronkorken-demo-stage',String(stage));} catch {}
+ showStage();
+}
+next.onclick=()=>setStage(Math.min(stage+1,steps.length-1));
+document.querySelector('#reset').onclick=()=>setStage(0);
+render();
+showStage();
+</script>
+</html>
