@@ -25,33 +25,275 @@ button[hidden] { display: none; }
 button:hover, .map-link:hover { filter: brightness(.9); }
 :focus-visible { outline: 3px solid #bd8824; outline-offset: 3px; }
 #state { font-weight: 700; }
-</style>
-<header><div><img alt="Vereinslogo" width="84" height="84" style="object-fit:contain" src="data:image/webp;base64,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"><p class="badge">DEMOVERSION · Sammelkarte des Vereins</p><h1>Kronkorken fürs Kinderhospiz e. V.</h1><p>Kleine Deckel. Große Hilfe.</p></div></header>
-<main>
-<section><h2>Sammelkarte des Vereins</h2>
-<p>Tippe auf einen Kartenpunkt für Öffnungszeiten, Kontakte und Abgabehinweise.</p>
-<iframe title="Sammelstellen, Herzensprojekte, Ansprechpartner und Verein" src="https://umap.openstreetmap.de/de/map/kronkorken-furs-kinderhospiz-ev-sammelkarte_158368?datalayers=bbfe3916-b448-439a-8755-3c559a399b80%2C6b03559f-702c-4849-a88a-10afc7bd490b%2C458c2f0d-ab25-4168-8103-3ad6133cb632%2Ca6f4b9ec-88a8-4e71-bf71-08c7231ba8a4&amp;editMode=disabled&amp;scrollWheelZoom=false&amp;datalayersControl=false&amp;onLoadPanel=none&amp;moreControl=false&amp;captionBar=false" allowfullscreen></iframe>
-<p><a class="map-link" href="https://umap.openstreetmap.de/de/map/kronkorken-furs-kinderhospiz-ev-sammelkarte_158368?datalayers=bbfe3916-b448-439a-8755-3c559a399b80%2C6b03559f-702c-4849-a88a-10afc7bd490b%2C458c2f0d-ab25-4168-8103-3ad6133cb632%2Ca6f4b9ec-88a8-4e71-bf71-08c7231ba8a4&amp;editMode=disabled&amp;scrollWheelZoom=false&amp;datalayersControl=false&amp;onLoadPanel=none&amp;moreControl=false&amp;captionBar=false" target="_blank" rel="noopener noreferrer">Karte in einem neuen Tab öffnen</a></p></section>
-<section><h2>Prüfablauf ausprobieren</h2><p>Die Statusänderung wird nur in diesem Browser gespeichert.</p><p id="state" role="status"></p><button id="next" type="button"></button> <button id="reset" type="button">Demo zurücksetzen</button></section>
-</main>
-<script>
-const steps=['Neu','In regionaler Prüfung','An Anett weitergeleitet','In abschließender Prüfung','Freigegeben'];
-let stage=0;
-try {const saved=Number(localStorage.getItem('kronkorken-demo-stage')); if(Number.isInteger(saved) && steps[saved]) stage=saved;} catch {}
-const next=document.querySelector('#next');
-function showStage() {
- document.querySelector('#state').textContent='Fiktiver Antrag · '+steps[stage];
- next.hidden=stage===steps.length-1;
- next.textContent=steps[stage+1] || '';
-}
-function setStage(value) {
- stage=value;
- try {localStorage.setItem('kronkorken-demo-stage',String(stage));} catch {}
- showStage();
-}
-next.onclick=()=>setStage(Math.min(stage+1,steps.length-1));
-document.querySelector('#reset').onclick=()=>setStage(0);
+[aria-pressed="false"] { background: #e8efe5; color: #163326; }
+.actions { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px; }
+.registration { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr)); gap:16px; }
+.search-row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+#address { flex:1 1 220px; min-width:0; padding:10px; border:1px solid #779684; border-radius:8px; font:inherit; }
+#results:empty { display:none; }
+#results li { margin:0 0 12px; }
+summary { cursor:pointer; font-weight:700; }
+#sponsoren { background:#fff9e8; border-color:#dfbc67; }
+.sponsor-email { margin:8px 0 0; overflow-wrap:anywhere; }
 
-showStage();
+body { background:#eef2e9; }
+header { background:radial-gradient(ellipse at top right,#345537,#101e15 75%); }
+#abgabe { border-top:4px solid #7c9c3f; }
+.purpose { max-width:62ch; }
+.sponsor-link { background:#dfbc67; color:#1e2819; }
+footer nav { display:flex; flex-wrap:wrap; gap:14px; padding:12px 0; }
+footer a, #results a { color:#24563e; font-weight:650; }
+
+.club-hero { position:relative; isolation:isolate; overflow:hidden; min-height:clamp(210px,28vw,330px); display:grid; align-items:center; background:radial-gradient(ellipse at 75% 12%,#385a30,#173724 50%,#0d2017 100%); }
+.club-hero::before { content:""; position:absolute; z-index:-1; inset:-38% -4% -38% 43%; background:url("vereinsbild-1.webp") center right 14% / contain no-repeat; opacity:.16; pointer-events:none; }
+.club-hero > div { padding-right:min(15vw,155px); }
+.club-hero h1 { max-width:17ch; letter-spacing:-.035em; }
+.club-hero img { filter:drop-shadow(0 8px 14px #0006); }
+#abgabe { position:relative; background:linear-gradient(145deg,#fffef8,#f8fbf3); box-shadow:0 14px 36px #14291818; border-top-color:#d4ad54; }
+#abgabe h2 { letter-spacing:-.025em; }
+#nearby { margin:18px 0 8px; }
+#nearby label { display:block; margin-bottom:6px; font-weight:650; }
+#nearby button { background:#24563e; padding-inline:20px; }
+#address { background:#fff; min-height:46px; }
+.actions { gap:10px; }
+.actions .map-link { margin:0; }
+#sponsoren { background:linear-gradient(125deg,#fff9e6,#fffcf3); }
+@media(max-width:540px) {
+ .club-hero > div { padding-right:0; }
+ .club-hero::before { inset:-25% -30% -25% 20%; opacity:.12; }
+ #nearby button { width:100%; justify-content:center; margin-inline:0; }
+}
+
+.material-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:16px; }
+.material-grid > div { overflow:hidden; border:2px solid var(--material-accent); border-radius:14px; background:#171916; color:#fff; }
+.material-yes { --material-color:#285119; --material-accent:#77a938; }
+.material-no { --material-color:#9e241b; --material-accent:#ed6653; }
+.material-grid h3 { display:flex; align-items:center; gap:10px; margin:0; padding:12px 16px; background:var(--material-color); color:#fff; font-family:system-ui,sans-serif; font-size:1.1rem; font-weight:800; text-transform:uppercase; letter-spacing:.035em; }
+.material-grid h3 span,.material-grid .rule-icon { display:grid; place-items:center; flex:0 0 28px; height:28px; border-radius:50%; font-weight:800; }
+.material-grid h3 span { border:1px solid #ffffff80; }
+.material-grid ul { list-style:none; margin:0; padding:6px 16px; }
+.material-grid li { display:flex; align-items:center; gap:10px; padding:9px 0; }
+.material-grid li + li { border-top:1px solid #ffffff24; }
+.material-grid .rule-icon { background:var(--material-color); color:#fff; }
+@media (max-width:600px) { .material-grid { grid-template-columns:1fr; } }
+
+body { position: relative; isolation: isolate; }
+body::before {
+ content: "";
+ position: fixed;
+ inset: 0;
+ z-index: -1;
+ pointer-events: none;
+ background: url("vereinsbild-2.webp") center / contain no-repeat;
+ opacity: .14;
+}
+main > section, .registration > section {
+ background-color: rgb(255 255 255 / .84);
+}
+#abgabe { background: linear-gradient(145deg, #fffef8e8, #f8fbf3d9); }
+#sponsoren { background: linear-gradient(125deg, #fff9e6eb, #fffcf3d9); }
+.action-icon { width:1.2em; height:1.2em; flex:none; margin-inline-end:.48em; vertical-align:-.22em; }
+
+.brand-icon { width:24px; height:24px; object-fit:contain; }
+footer nav a { display:inline-flex; align-items:center; min-height:44px; }
+footer a[href^="mailto:"] .action-icon { color:#3864a0; }
+footer a[href*="kronkorken-kinderhospiz.de/"] .action-icon { color:#458032; }
+.sponsor-link .action-icon { color:#70451c; }
+.actions { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr)); } .actions .entry { display:grid; align-content:center; min-height:76px; } .entry small { font-weight:400; }
+#pins{position:relative;height:270px;background:repeating-linear-gradient(0deg,#edf5e6 0 29px,#ccd9c6 29px 30px);border-radius:12px} #pins button{position:absolute;transform:translate(-50%,-50%);min-width:44px;justify-content:center}
+
+:root { --club-olive:#7b934e; --club-dark:#344621; --club-orange:#f2843e; --club-ink:#25291e; }
+body { background:#f4f5ed; color:var(--club-ink); }
+body::before { opacity:.20; }
+.club-hero { background:var(--club-olive); border-bottom:0; color:#172011; min-height:clamp(180px,24vw,280px); }
+.club-hero::before { opacity:.10; }
+.club-hero .badge { color:#172011; }
+h1,h2 { font-family:Garamond, Georgia, serif; letter-spacing:normal; font-weight:600; }
+h2 { color:var(--club-dark); }
+section { border-radius:8px; border-color:#d8dfca; }
+main > section, .registration > section { background-color:#ffffffe5; }
+.actions .entry { background:#edf1e3; color:var(--club-dark); border:1px solid #c5d1ad; }
+.actions .entry:first-child, #nearby button, #sponsoren .map-link { background:var(--club-orange); color:#151515; border-color:transparent; }
+.map-link, button { background:var(--club-dark); }
+#abgabe { border-top-color:var(--club-olive); background:linear-gradient(145deg,#ffffffeb,#f5f8eae5); }
+#sponsoren { border-color:#e5b28b; background:#fff6ede5; }
+:focus-visible { outline-color:#8b410f; }
+
+.club-bar { background:#7b934e; }
+.club-bar nav { width:min(1120px,calc(100% - 32px)); margin:auto; min-height:76px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 24px; padding:12px 0; }
+.club-bar nav div { display:flex; flex-wrap:wrap; gap:8px 22px; }
+.club-bar a { color:#141a0e; text-decoration:none; padding:8px 0; }
+.club-bar a:hover { text-decoration:underline; }
+.club-bar nav > a { color:#fff; font-family:"Arial Narrow",sans-serif; font-weight:800; text-transform:uppercase; }
+.club-hero { text-align:center; color:#f8f8f8; min-height:clamp(390px,47vw,670px); align-items:end; background:#24351c linear-gradient(#0008,#0009); background-image:linear-gradient(#0007,#000a),url("https://kronkorken-kinderhospiz.de/wp-content/uploads/go-x/u/43f59fd6-a778-43c9-b883-4cb654ba4d47/image.jpg"); background-position:center 37%; background-size:cover; }
+.club-hero::before { content:none; }
+.club-hero > div { padding:0; }
+.club-hero img { float:none; display:block; width:clamp(70px,9vw,105px); margin:0 auto 12px; }
+.club-hero h1 { max-width:none; letter-spacing:normal; font-weight:500; }
+.club-hero .badge { color:#f8f8f8; }
+.actions .entry { border-radius:8px; }
+@media(max-width:600px){ .club-bar nav { justify-content:center; } }
+@media (max-width:600px) { .club-hero { background-position:43% center; } }
+input,select,button{font-size:16px} #results{padding-left:22px} #results li{overflow-wrap:anywhere} #results summary{min-height:44px;padding:10px 0} #results p{white-space:pre-line} @media(max-width:600px){.search-row>*{width:100%}.club-bar nav div{justify-content:center}.map-link{max-width:100%;overflow-wrap:anywhere}}
+main{padding-top:24px}.actions{margin:24px 0 32px}.actions .entry{min-height:68px}#abgabe{margin-bottom:0} #mitmachen{scroll-margin-top:20px}
+
+main { max-width:1120px; }
+#results li { margin:0 0 12px; padding:12px 16px; background:#f5f7ee; border-left:4px solid #7b934e; border-radius:8px; }
+#results summary { color:#344621; font-weight:700; }
+.actions .entry { transition:background-color .15s,box-shadow .15s; }
+.actions .entry:hover { background:#dfe7cd; box-shadow:0 3px 12px #34462120; }
+.registration { margin-bottom:24px; }
+.registration section { margin:0; }
+#verein,#sponsoren { padding-block:28px; }
+@media(max-width:600px) {
+ main { width:calc(100% - 24px); }
+ .actions { grid-template-columns:1fr; gap:8px; }
+ section { padding:16px; }
+ .club-hero h1 { font-size:clamp(1.65rem,7vw,2.4rem); }
+ #results { padding-left:20px; }
+}
+.care-notice{margin:20px 0;padding:18px;border-left:5px solid #b16c20;border-radius:8px;background:#fff4dfeF}.care-notice h3{margin:0 0 8px}.care-notice a{color:#344621;font-weight:700}
+.no-drop{background:#fff0ed;border-left:5px solid #9e241b;padding:14px;color:#62221d} #hospice-results article{border-bottom:1px solid #ccd5bf;padding:12px 0} #hospice-query{font:inherit;padding:10px;width:100%;margin:8px 0} [hidden]{display:none!important}
+</style>
+<div class="club-bar"><nav aria-label="Hauptnavigation"><a href="#start">Kronkorken fürs Kinderhospiz</a><div><a href="#abgabe">Sammelstellen</a><a href="#verein">Über uns</a><a href="#kontakt-region">Kontakt</a></div></nav></div><header class="club-hero"><div><img alt="Vereinslogo" width="84" height="84" style="object-fit:contain" src="vereinsbild-1.webp"><p class="badge">TESTVERSION · Vereins-App</p><h1>Kronkorken fürs Kinderhospiz e. V.</h1><p>Kleine Deckel. Große Hilfe.</p></div></header>
+<main id="start">
+
+<section id="abgabe"><h2>Sammelstelle finden</h2><p>Suche nach Ort, PLZ oder dem Namen einer Sammelstelle. Die Angaben stammen aus der vorhandenen uMap-Sicherung.</p>
+<form id="nearby"><label for="address">Wo suchst du? Ort, PLZ oder Sammelstelle</label><div class="search-row"><input id="address" required placeholder="z. B. Velten, 16727 oder Bernau"><label>Radius <select id="radius"><option>5</option><option selected>10</option><option>15</option><option>25</option></select> km</label><button>Suchen</button></div></form>
+<p id="search-status" role="status"></p><ol id="results"></ol><details id="result-map" hidden><summary>Treffer auf der Karte ansehen</summary><p>Schematische Karte · Norden oben</p><div id="pins"></div></details><p><a href="#kontakt-region">Regionalleitung kontaktieren</a></p></section>
+<nav class="actions" aria-label="Hauptfunktionen">
+<a class="map-link entry" href="#abgabe"><strong>Sammelstelle finden</strong><small>Wo kann ich Kronkorken abgeben?</small></a><a class="map-link entry" href="#mitmachen"><strong>Mitmachen</strong><small>Sammelstelle oder Sammler werden</small></a><a class="map-link entry" href="#abholung"><strong>Abholung anfragen</strong><small>Meine Sammeltonne ist voll</small></a><a class="map-link entry" href="#echtheit"><strong>Echtheit prüfen</strong><small>Offizielle Sammelstellen und Abholberechtigungen</small></a><a class="map-link entry" href="#downloads"><strong>Flyer &amp; Downloads</strong><small>Offizielle Materialien zum Ausdrucken</small></a><a class="map-link entry" href="#verein"><strong>Über uns</strong><small>Informationen zur Sammelaktion</small></a><a class="map-link entry" href="#sponsoren"><strong>Unterstützen</strong><small>Als Sponsor den Verein kennenlernen</small></a><a class="map-link entry" href="#verwaltung"><strong>Interner Vereinsbereich</strong><small>Anmeldung für Berechtigte</small></a>
+</nav>
+
+<div class="registration" id="mitmachen"><section id="sammler"><h2>Als Sammler anmelden</h2><p>Du sammelst Kronkorken und bringst sie zu einer Sammelstelle. Wähle im Formular „Sammler/in“.</p><a class="map-link" href="https://dieisolatorendeluxe.github.io/isolatoren-deluxe/formular-test/"><svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 12h7m-7 4h7"/></svg>Testformular öffnen</a></section><section id="sammelstelle"><h2>Als Sammelstelle registrieren</h2><p>Du möchtest Kronkorken von anderen annehmen. Wähle „Sammelstelle“ und ergänze die Abgabeadresse und Öffnungszeiten.</p><a class="map-link" href="https://dieisolatorendeluxe.github.io/isolatoren-deluxe/formular-test/"><svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 12h7m-7 4h7"/></svg>Testformular öffnen</a></section></div><p>Für die Demo bitte fiktive Angaben verwenden.</p><section id="sammeln" aria-labelledby="material-heading">
+ <h2 id="material-heading">Was sammeln wir?</h2>
+ <div class="material-grid">
+  <div class="material-yes">
+   <h3><span aria-hidden="true">✓</span> Darf rein</h3>
+   <ul><li><span class="rule-icon" aria-hidden="true">✓</span>Kronkorken</li><li><span class="rule-icon" aria-hidden="true">✓</span>Blechdeckel von Schraubgläsern</li><li><span class="rule-icon" aria-hidden="true">✓</span>Geeignete Metallverschlüsse</li><li><span class="rule-icon" aria-hidden="true">✓</span>Metallverschlüsse von Sekt- und Champagnerflaschen ohne Korken</li></ul>
+  </div>
+  <div class="material-no">
+   <h3><span aria-hidden="true">✕</span> Darf nicht rein</h3>
+   <ul><li><span class="rule-icon" aria-hidden="true">✕</span>Plastik</li><li><span class="rule-icon" aria-hidden="true">✕</span>Glas</li><li><span class="rule-icon" aria-hidden="true">✕</span>Korken</li><li><span class="rule-icon" aria-hidden="true">✕</span>Restmüll</li><li><span class="rule-icon" aria-hidden="true">✕</span>Konservendosen</li></ul>
+  </div>
+ </div>
+</section><section id="abholung"><h2>Abholung anfragen</h2><p>Simulation für Muster-Sammelstelle BB-ST-0001.</p><button id="pickup" type="button">Meine Sammeltonne ist voll</button><div id="pickup-actions" hidden><label>Auftrag <select id="pickup-job"><option>BB-AB-0001</option><option>BB-AB-0002</option></select></label><button id="scan" type="button">Scan simulieren</button></div><p id="pickup-status" role="status"></p></section>
+<section id="echtheit"><h2>Echtheit prüfen</h2><p id="verification" role="status"></p><a id="proof-link" href="#echtheit">Prüflink öffnen</a> <button id="report" type="button">Missbrauchsmeldung simulieren</button><p id="report-status" role="status"></p></section>
+<section id="downloads"><h2>Flyer &amp; Downloads</h2><a class="map-link" id="flyer-download" href="vereinsbild-2.webp" download="Vereinsflyer.webp">Originalflyer herunterladen</a> <a class="map-link" href="https://dieisolatorendeluxe.github.io/isolatoren-deluxe/formular-test/">Einverständnisformular öffnen</a><p>Personalisierte Schilder und interne Dokumente gehören in den geschützten Vereinsbereich.</p></section>
+<section id="kontakt-region"><h2>Regionalleitung Berlin / Brandenburg</h2><p>Jan und Steffi Sonneborn</p><a href="mailto:js.sonneborn@gmail.com">E-Mail an die Regionalleitung</a></section><section id="herzensprojekte"><h2>Unsere Herzensprojekte</h2><p>Diese Einrichtungen werden unterstützt. Das Ronald McDonald Haus Jena ist ein Elternhaus.</p><p class="no-drop"><strong>Hier ist keine Abgabe von Kronkorken möglich. Bitte die Einrichtungen nicht wegen der Sammlung kontaktieren.</strong> Für alle Fragen zur Sammlung ist die Regionalleitung zuständig.</p><label for="hospice-query">Einrichtung oder Ort suchen</label><input type="search" id="hospice-query" placeholder="Alle Einrichtungen anzeigen"><div id="hospice-results"><article data-hospice="kinderhospiz bärenherz leipzig markkleeberg"><h3>Kinderhospiz Bärenherz Leipzig</h3><p>Markkleeberg</p><p><strong>Keine Abgabe möglich</strong></p></article><article data-hospice="kinderhospiz berliner herz berlin"><h3>Kinderhospiz Berliner Herz</h3><p>Berlin</p><p><strong>Keine Abgabe möglich</strong></p></article><article data-hospice="kinderhospiz mitteldeutschland tambach-dietharz"><h3>Kinderhospiz Mitteldeutschland</h3><p>Tambach-Dietharz</p><p><strong>Keine Abgabe möglich</strong></p></article><article data-hospice="ronald mcdonald haus jena jena"><h3>Ronald McDonald Haus Jena</h3><p>Jena</p><p><strong>Keine Abgabe möglich</strong></p></article></div><p id="hospice-empty" hidden>Keine passende Einrichtung gefunden.</p><a href="#kontakt-region">Fragen an die Regionalleitung</a></section><section id="verein"><h2>Über den Verein</h2><p>Kronkorken fürs Kinderhospiz e. V. bringt Sammler und Sammelstellen zusammen. Die gesammelten Metallverschlüsse werden recycelt. Mit dem Erlös unterstützt der Verein Kinderhospize und damit schwerkranke Kinder und ihre Familien.</p><p>In Berlin und Brandenburg unterstützen Jan und Steffi Sonneborn von den Isolatoren Deluxe das Kinderhospiz „Berliner Herz“.</p><a class="map-link" href="https://www.kronkorken-kinderhospiz.de/"><svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg>Vereinswebsite öffnen</a></section>
+<section id="sponsoren"><h2>Für Sponsoren</h2><p>Ihr möchtet als Unternehmen oder Organisation erfahren, wie die Sammlung funktioniert, welche Kinderhospize der Verein unterstützt und wie ihr finanziell helfen könnt? Meldet euch direkt beim Verein. Dort könnt ihr eure Fragen stellen und gemeinsam besprechen, welche Unterstützung passt.</p><a class="map-link" href="mailto:info@kronkorken-kinderhospiz.de?subject=Sponsoring-Anfrage%20%E2%80%93%20Kronkorken%20f%C3%BCrs%20Kinderhospiz%20e.%20V.&amp;body=Hallo%20liebes%20Vereinsteam%2C%0A%0Awir%20m%C3%B6chten%20eure%20Kronkorkenaktion%20kennenlernen%20und%20besprechen%2C%20wie%20wir%20euch%20finanziell%20unterst%C3%BCtzen%20k%C3%B6nnen.%0A%0AUnternehmen%20oder%20Organisation%3A%0AAnsprechpartner%3A%0AR%C3%BCckrufnummer%20(optional)%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe"><svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Sponsoring per E-Mail anfragen</a><p class="sponsor-email">info@kronkorken-kinderhospiz.de</p></section>
+
+<section id="verwaltung"><details><summary><svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="5" width="14" height="16" rx="2"/><path d="M9 5V3h6v2m-6 9 2 2 4-4"/></svg>Verwaltung in der Demo ausprobieren</summary><h2>Prüfablauf · Simulation</h2><button id="revoke" type="button">Freigabe widerrufen / wiederherstellen</button><p id="audit"></p><p>Die Statusänderung wird nur in diesem Browser gespeichert.</p><p id="state" role="status"></p><button id="next" type="button"></button> <button id="reset" type="button"><svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 11a8 8 0 1 1 2 7M4 5v6h6"/></svg>Demo zurücksetzen</button></details></section>
+<footer><nav aria-label="Verein und Kontakt"><a href="https://www.kronkorken-kinderhospiz.de/"><svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg>Vereinswebsite</a><a href="mailto:info@kronkorken-kinderhospiz.de"><svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Kontakt</a><a href="https://www.instagram.com/kronkorken_kinderhospizev/"><img class="action-icon brand-icon" alt="" width="24" height="24" src="vereinsbild-3.webp">Instagram</a><a href="https://www.tiktok.com/@kronkorkenkinderhospiz24"><img class="action-icon brand-icon" alt="" width="24" height="24" src="vereinsbild-4.webp">TikTok</a></nav></footer></main>
+<script>
+document.getElementById("hospice-query").addEventListener("input", event => {
+ const query = event.target.value.trim().toLowerCase();
+ let visible = 0;
+ for (const card of document.querySelectorAll("[data-hospice]")) {
+  card.hidden = !card.dataset.hospice.includes(query);
+  if (!card.hidden) visible++;
+ }
+ document.getElementById("hospice-empty").hidden = visible > 0;
+});
+const places = { berlin:[52.532,13.384], '10115':[52.532,13.384], potsdam:[52.3906,13.0645], '14467':[52.3906,13.0645] };
+const stationEntries = [{"name":"ALBA Uckermark GmbH – Schwedt/Oder","point":[53.0804517,14.308188],"address":"Kuhlheide 15\n16303 Schwedt/Oder","hours":"Mo–Fr 09:00–18:00 Uhr\nSa 08:00–12:00 Uhr"},{"name":"Altenhof – Am See – Katrin und Familie","point":[52.9127737,13.7076678],"address":"Am See 4\n16244 Schorfheide\nZusatz: Bootsverleih „Am Breten“","hours":""},{"name":"Autohaus Krüll – Rostock","point":[54.1044053,12.1816725],"address":"Dierkower Allee 3\n18146 Rostock","hours":"Mo–Fr 06:00–18:30 Uhr\nSa 09:00–13:00 Uhr"},{"name":"Gartenbau Schönow GbR – Bernau/Schmetzdorf","point":[52.693461,13.54831],"address":"Eichenweg / Ecke Püttenstraße\n16321 Bernau","hours":"Sommer: Mo–Fr 09:00–18:00 Uhr; Sa 09:00–14:00 Uhr\n\nWinter (01.11.–28.02.): Mo–Fr 09:00–14:00 Uhr; Sa 09:00–13:00 Uhr"},{"name":"Getränke Hoffmann – Velten","point":[52.6847616,13.182215],"address":"Rosa-Luxemburg-Straße 121\n16727 Velten","hours":"Mo–Fr 08:00–20:00 Uhr\nSa 08:00–18:00 Uhr\nSo geschlossen"},{"name":"HEM Tankstelle – Velten","point":[52.6868042,13.1935603],"address":"Ahornstraße 1\n16727 Velten","hours":"24 Stunden täglich"},{"name":"Knoll Autoteile – Niederlassung Bernau","point":[52.6825795,13.5679813],"address":"Werner-von-Siemens-Straße 20\n16321 Bernau","hours":"Mo–Fr 07:30–17:30 Uhr\nSa & So geschlossen"},{"name":"Landwarenhaus Wölsickendorf","point":[52.7381328,13.9307002],"address":"Hauptstraße 13\n16259 Höhenland OT Wölsickendorf","hours":"Mo–Fr 17:00–19:30 Uhr"},{"name":"MAW Bernau GmbH","point":[52.683982,13.564772],"address":"Carl-Friedrich-Benz-Straße 25\n16321 Bernau","hours":"Mo–Fr 08:00–18:00 Uhr"},{"name":"Mini-Markt Sydower – Grüntal","point":[52.744878,13.727181],"address":"Dorfstraße 28\n16230 Sydower Fließ OT Grüntal","hours":"Mo–Fr 08:00–20:00 Uhr\nSa 07:30–10:00 Uhr & 17:00–20:00 Uhr\nSo 17:00–20:00 Uhr"},{"name":"Otto und Willy – Burig (Neu-Zittau)","point":[52.382804,13.767972],"address":"Mittelstraße 6\n15537 Burig (Neu-Zittau)","hours":""},{"name":"René Schlonsinger – Velten","point":[52.68754,13.18074],"address":"Viktoriastraße 62b\n16727 Velten","hours":""},{"name":"SV Zehdenick 1920 – Zehdenick","point":[52.9787965,13.3368503],"address":"Jahnstraße 4\n16792 Zehdenick","hours":""},{"name":"Torgelow – „Ostdödels“","point":[53.637481,14.0091933],"address":"Blumentaler Straße 3a\n17358 Torgelow","hours":"15:00–20:00 Uhr nach Absprache"},{"name":"Zenker’s Strand Grill – Graal-Müritz","point":[54.2589271,12.2441734],"address":"Zur Seebrücke 36\n18181 Graal-Müritz","hours":"Täglich 10:30–18:00 Uhr📦 Größere Mengen bitte vorher telefonisch absprechen."},{"name":"Zum Zicken-Schulze – Bernau","point":[52.6782764,13.5892601],"address":"Brauerstraße 2\n16321 Bernau bei Berlin","hours":"Mo, Mi–So 11:00–23:00 Uhr\nDi geschlossen"},{"name":"Kindertagespflege – Panketal","point":[52.662748,13.530701],"address":"","hours":"","institution":true,"notes":"📦 Abgabe möglich: am Zaun oder nach telefonischer Anmeldung.\nBitte nicht unangemeldet in die Kindertagespflege gehen."},{"name":"Kindertagesstätte – Hohen Neuendorf OT Borgsdorf","point":[52.663796,13.3147962],"address":"","hours":"","institution":true,"notes":"🔵 Kein öffentlicher Abgabepunkt – bitte nicht direkt aufsuchen."},{"name":"Kindertagesstätte Campus – Hohen Neuendorf","point":[52.6693765,13.3181519],"address":"","hours":"","institution":true,"notes":"🔵 Kein öffentlicher Abgabepunkt – bitte nicht direkt aufsuchen."}];
+const stations = stationEntries.map(entry => entry.point);
+const allowedRadii = [5,10,15,25];
+const steps = ['Neu','In regionaler Prüfung','An Anett weitergeleitet','In abschließender Prüfung','Freigegeben'];
+const proof = '7cb5c04a-6989-48d0-8214-631e88debf95';
+const byId = id => document.getElementById(id);
+let stage = 0;
+let revoked = false;
+try { revoked = localStorage.getItem('kronkorken-demo-revoked') === 'true'; } catch { /* Local previews may block storage. */ }
+let scanned = false;
+let hasSearch = false;
+function distance([lat, lon], [otherLat, otherLon]) {
+ const rad = Math.PI / 180;
+ const a = Math.sin((otherLat-lat)*rad/2)**2 + Math.cos(lat*rad)*Math.cos(otherLat*rad)*Math.sin((otherLon-lon)*rad/2)**2;
+ return 12742 * Math.asin(Math.sqrt(Math.min(1,a)));
+}
+function findStations(origin, radius, isRevoked) {
+ if (!origin || !allowedRadii.includes(radius)) return [];
+ return stations.map((point,index) => ({index,km:distance(origin,point)}))
+  .filter(row => row.km <= radius && true)
+  .sort((a,b) => a.km-b.km).slice(0,5);
+}
+function renderSearch() {
+ const query = byId('address').value.trim().toLowerCase();
+ const words = query.split(/\s+/).filter(Boolean);
+ const match = words.length ? stationEntries.find(entry => words.every(word => (entry.name+' '+entry.address).toLowerCase().includes(word))) : null;
+ const origin = places[query] || places[query.split(/\s+/)[0]] || match?.point;
+ const hits = findStations(Array.isArray(origin) ? origin : null, Number(byId('radius').value), revoked);
+ byId('results').replaceChildren();
+ const pins = byId('pins');
+ pins.replaceChildren();
+ byId('result-map').hidden = !hits.length;
+ byId('search-status').textContent = hits.length ? hits.length+' Sammelstellen · Luftlinie ab Suchort oder passender Abgabestelle' : 'Keine Treffer. Suche nach Ort, PLZ oder Name einer Sammelstelle. Die Regionalleitung hilft dir gerne.';
+ for (const {index,km} of hits) {
+  const item = document.createElement('li');
+  const detail = document.createElement('details');
+  const title = document.createElement('summary');
+  title.textContent = stationEntries[index].name+' · '+km.toFixed(1).replace('.',',')+' km';
+  const info = document.createElement('p');
+  const entry = stationEntries[index];
+  info.textContent = entry.institution
+   ? 'Interner Sammelpunkt · Keine reguläre öffentliche Sammelstelle. Abgabe nur nach Absprache oder am Zaun. Bitte nicht unangemeldet betreten.\n' + entry.notes
+   : [entry.address,entry.hours].filter(Boolean).join(' · ');
+  detail.append(title,info);
+  const route = document.createElement("a");
+  route.textContent = "In Google Maps ansehen";
+  route.href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(stationEntries[index].address);
+  route.target = "_blank";
+  route.rel = "noopener noreferrer";
+  if (!entry.institution) detail.append(route);
+  item.append(detail);
+  byId('results').append(item);
+  const [lat,lon] = stations[index];
+  const pin = document.createElement('button');
+  pin.textContent = String(index+1);
+  pin.setAttribute('aria-label', title.textContent);
+  pin.style.left = (50 + (lon-origin[1])*Math.cos(origin[0]*Math.PI/180)*200) + '%';
+  pin.style.top = (50 - (lat-origin[0])*200) + '%';
+  pin.onclick = () => {detail.open=true;title.focus();};
+  pins.append(pin);
+ }
+}
+byId('nearby').addEventListener('submit',event=>{event.preventDefault();hasSearch=true;renderSearch();});
+for (const button of document.querySelectorAll('[data-test-place]')) {
+ button.addEventListener('click', () => {
+  byId('address').value = button.dataset.testPlace;
+  byId('nearby').requestSubmit();
+ });
+}
+function renderStatus() {
+ const code = new URLSearchParams(location.search).get('pruefcode');
+ byId('verification').textContent = code && code !== proof ? 'Prüfcode unbekannt.' : 'Muster-Sammelstelle · BB-ST-0001 · Berlin / Brandenburg · '+(revoked?'Gesperrt':'Freigegeben')+' · Simulation';
+ byId('state').textContent = 'Fiktiver Antrag · '+steps[stage];
+ byId('next').textContent = steps[stage+1] || '';
+ byId('next').hidden = stage === steps.length-1;
+}
+byId('proof-link').href = '?pruefcode='+proof+'#echtheit';
+byId('report').onclick = () => {byId('report-status').textContent='Missbrauchsmeldung simuliert. Kontakt zur Regionalleitung: siehe oben.';};
+function logStatus() {byId('audit').textContent = 'Letzte Änderung · '+new Date().toLocaleString('de-DE')+' · '+(revoked?'Musterkennung gesperrt':steps[stage]);}
+byId('next').onclick = () => {stage=Math.min(stage+1,steps.length-1);logStatus();renderStatus();};
+byId('reset').onclick = () => {stage=0;scanned=false;byId('pickup-actions').hidden=true;byId('pickup-status').textContent='';renderStatus();logStatus();};
+byId('revoke').onclick = () => {
+ revoked = !revoked;
+ try { localStorage.setItem('kronkorken-demo-revoked', String(revoked)); } catch { /* Keep the status for this session. */ }
+ renderStatus();logStatus();
+ if(hasSearch)renderSearch();
+};
+byId('pickup').onclick = () => {byId('pickup-actions').hidden=false;byId('pickup-status').textContent='Demo-Auftrag BB-AB-0001 bereit.';};
+byId('scan').onclick = () => {
+ const status=byId('pickup-status');
+ if(byId('pickup-job').value!=='BB-AB-0001'){status.textContent='Auftrag ist dem Demo-Mitglied nicht zugewiesen.';return;}
+ if(revoked){status.textContent='Sammelstelle gesperrt.';return;}
+ if(scanned){status.textContent='Auftrag wurde bereits bestätigt.';return;}
+ scanned=true;
+ status.textContent='Scan bestätigt · Muster-Sammelstelle BB-ST-0001 · BB-AB-0001 · Demo-Mitglied · '+new Date().toLocaleString('de-DE')+' · Benachrichtigung simuliert';
+};
+renderStatus();
+byId("address").value = "";
+byId("search-status").textContent = "Ort, PLZ oder Name eingeben.";
 </script>
 </html>
