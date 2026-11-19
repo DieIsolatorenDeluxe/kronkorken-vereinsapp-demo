@@ -55,3 +55,12 @@ function mountRegistration(type){signature=[];idempotencyKey=null;
  form.scrollIntoView({block:'start',behavior:'smooth'});
 }
 document.querySelectorAll('[data-join]').forEach(button=>button.onclick=()=>mountRegistration(button.dataset.join));
+
+const flyerDialog=$('flyer-dialog');
+$('flyer-open').onclick=()=>flyerDialog.showModal();
+$('flyer-close').onclick=()=>flyerDialog.close();
+flyerDialog.addEventListener('click',event=>{if(event.target===flyerDialog){const rect=flyerDialog.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)flyerDialog.close();}});
+const flyerLink='https://dieisolatorendeluxe.github.io/kronkorken-vereinsapp-demo/#downloads';
+async function copyFlyer(){try{await navigator.clipboard.writeText(flyerLink);$('flyer-share-status').textContent='Link zur Flyeransicht kopiert.';}catch{$('flyer-share-status').textContent='Zum Weitergeben: '+flyerLink;}}
+$('flyer-copy').onclick=copyFlyer;
+$('flyer-share').onclick=async()=>{try{if(navigator.share)await navigator.share({title:'Kronkorken fürs Kinderhospiz e. V. – Vereinsflyer',text:'Kleine Deckel. Große Hilfe. Hier findest du unseren Vereinsflyer mit Sammelregeln und Kontakt.',url:flyerLink});else await copyFlyer();}catch(error){if(error.name!=='AbortError')await copyFlyer();}};
