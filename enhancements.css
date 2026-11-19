@@ -18,3 +18,5 @@
 .station-notice{display:block;width:fit-content;max-width:100%;padding:5px 9px;margin:8px 0 2px;border-radius:6px;font-size:.83rem;line-height:1.5;font-weight:650;white-space:normal}.station-notice.public{background:#e8f3df;color:#365926}.station-notice.internal{background:#f3e7ec;color:#813d52}.station-notice.exception{background:#fff1d7;color:#815b19}#pins .station-internal{background:#875370;color:white}#pins .station-exception{background:#986b22;color:white}
 
 .section-back{display:inline-flex;margin-top:26px;padding:10px 16px}#contact-profile>.section-back{margin-top:20px}
+
+.station-contact-link{display:inline-flex;align-items:center;min-height:44px;font-weight:650;text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere;max-width:100%}.station-contact-link:hover{color:#6d812f}
