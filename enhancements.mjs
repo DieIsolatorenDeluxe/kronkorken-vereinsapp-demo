@@ -16,8 +16,6 @@ function routeContact(){const c=contacts.find(c=>location.hash==='#kontakt-'+c.i
  $('print-contact').onclick=()=>window.print();profile.scrollIntoView({block:'start'});
 }
 window.addEventListener('hashchange',routeContact);routeContact();
-const supporterList=$('supporter-list'),supporterMap=$('supporter-map');
-window.VereinsData.supporters.forEach((e,i)=>{const article=document.createElement('article');article.id='support-'+e.id;const logistics=e.name.includes('Logistikstützpunkt');article.innerHTML=`<span class="support-symbol" aria-hidden="true">◆</span><h3>${esc(e.name)}</h3><p>${esc(e.city)}</p><p class="no-drop"><strong>${logistics?'Logistikstützpunkt – keine öffentliche Abgabemöglichkeit.':internalNotice}</strong></p><p>${logistics?'Nur Anlieferungen von Sammelstellen ab 300 kg. Terminvereinbarung erforderlich. Bitte an Jan und Steffi wenden.':internalExplanation}</p>`;supporterList.append(article);const pin=document.createElement('button');pin.type='button';pin.textContent='◆ '+(i+1);pin.setAttribute('aria-label',e.name+' · keine öffentliche Abgabe');pin.style.left=(15+i*70/Math.max(1,window.VereinsData.supporters.length-1))+'%';pin.style.top=(25+(i%2)*35)+'%';pin.onclick=()=>article.scrollIntoView({block:'center',behavior:'smooth'});supporterMap.append(pin);});
 let installPrompt;
 window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();installPrompt=event;$('install-app').textContent='App installieren';});
 $('install-app').onclick=async()=>{if(installPrompt){await installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;}else $('install-help').showModal();};
