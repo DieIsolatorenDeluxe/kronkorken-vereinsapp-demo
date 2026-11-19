@@ -73,3 +73,14 @@ consentViewer.addEventListener('close',()=>{$('consent-content').replaceChildren
 // Consistent return path, including when the user has scrolled to the end.
 for(const section of document.querySelectorAll('main > section')){if(section.id==='contact-profile'||section.querySelector('.search-return'))continue;const back=document.createElement('a');back.className='map-link section-back';back.href='#start';back.textContent='← Zur Übersicht';section.append(back);}
 document.querySelectorAll('a[href^="https://"],a[href^="http://"]').forEach(link=>{if(link.hasAttribute('download'))return;link.target='_blank';link.rel='noopener noreferrer';});
+
+function resetOpenViews(){
+ document.querySelectorAll('details[open]').forEach(detail=>{detail.open=false;});
+ document.querySelectorAll('dialog[open]').forEach(dialog=>dialog.close());
+ $('results').replaceChildren();$('pins').replaceChildren();$('result-map').hidden=true;
+ $('address').value='';$('radius').value='10';$('search-status').textContent='Ort, PLZ oder Name eingeben.';
+ $('hospice-query').value='';document.querySelectorAll('[data-hospice]').forEach(card=>{card.hidden=false;});$('hospice-empty').hidden=true;$('hospice-count').textContent=document.querySelectorAll('[data-hospice]').length+' Herzensprojekte';
+}
+window.addEventListener('hashchange',resetOpenViews);
+document.addEventListener('click',event=>{const link=event.target.closest('a');if(link&&link.getAttribute('href')==='#start')resetOpenViews();});
+$('results').addEventListener('toggle',event=>{const current=event.target;if(current.tagName!=='DETAILS'||!current.open)return;for(const other of $('results').querySelectorAll('details[open]'))if(other!==current)other.open=false;},true);
