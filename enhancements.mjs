@@ -75,6 +75,7 @@ for(const section of document.querySelectorAll('main > section')){if(section.id=
 document.querySelectorAll('a[href^="https://"],a[href^="http://"]').forEach(link=>{if(link.hasAttribute('download'))return;link.target='_blank';link.rel='noopener noreferrer';});
 
 function resetOpenViews(){
+ window.cancelStationSearch?.();
  document.querySelectorAll('details[open]').forEach(detail=>{detail.open=false;});
  document.querySelectorAll('dialog[open]').forEach(dialog=>dialog.close());
  $('results').replaceChildren();$('pins').replaceChildren();$('result-map').hidden=true;

@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Kronkorken">
 <title>Kronkorken sammeln · Demoversion</title>
-<link rel="stylesheet" href="enhancements.css?v=20261119-11">
+<link rel="stylesheet" href="enhancements.css?v=20261119-12">
 <style>
 * { box-sizing: border-box; }
 body { margin: 0; background: #f3f5ee; color: #163326; font: 16px/1.55 system-ui, sans-serif; }
@@ -170,8 +170,8 @@ main { max-width:1120px; }
 <main id="start"><div id="view-return" hidden><a class="map-link" href="#start">← Zur Übersicht</a></div>
 
 <section id="abgabe"><h2>Sammelstelle finden</h2><p>Suche nach Ort, PLZ oder dem Namen einer Sammelstelle. Beachte bitte den Abgabehinweis beim jeweiligen Treffer – manche Stellen sammeln nur intern oder nehmen Material ausschließlich nach Absprache an.</p>
-<form id="nearby"><label for="address">Wo suchst du? Ort, PLZ oder Sammelstelle</label><div class="search-row"><input id="address" required placeholder="z. B. Velten, 16727 oder Bernau"><label>Radius <select id="radius"><option>5</option><option selected>10</option><option>15</option><option>25</option></select> km</label><button>Suchen</button></div></form>
-<p id="search-status" role="status"></p><ol id="results"></ol><details id="result-map" hidden><summary>Treffer auf der Karte ansehen</summary><p>● Öffentlich · ◆ Intern / eingeschränkt · ▲ Abgabe nach besonderer Regelung · Schematische Karte · Norden oben</p><div id="pins"></div></details><div class="button-row search-return"><a class="map-link" href="#start">← Zur Übersicht</a><a href="#kontakt-region">Kontakt &amp; Hilfe</a></div></section>
+<form id="nearby"><label for="address">Wo suchst du? Ort, PLZ oder Sammelstelle</label><div class="search-row"><input id="address" required placeholder="z. B. Berlin-Grünau, Velten oder 16321"><label>Radius <select id="radius"><option>5</option><option selected>10</option><option>15</option><option>25</option></select> km</label><button>Suchen</button></div></form>
+<p class="place-search-note">Ort, Stadtteil oder ein Begriff wie „Kita“, „Gartenbau“ oder „Autohaus“ reicht. Unbekannte Orte werden erst beim Suchen an Photon/komoot übermittelt. Ortsdaten: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap-Mitwirkende</a>.</p><p id="search-status" role="status" aria-live="polite"></p><div id="place-options" class="place-options" hidden></div><ol id="results"></ol><details id="result-map" hidden><summary>Treffer auf der Karte ansehen</summary><p>● Öffentlich · ◆ Intern / eingeschränkt · ▲ Abgabe nach besonderer Regelung · Schematische Karte · Norden oben</p><div id="pins"></div></details><div class="button-row search-return"><a class="map-link" href="#start">← Zur Übersicht</a><a href="#kontakt-region">Kontakt &amp; Hilfe</a></div></section>
 <nav class="actions" aria-label="Hauptfunktionen">
 <a class="map-link entry" href="#abgabe"><strong>Sammelstelle finden</strong><small>Wo kann ich Kronkorken abgeben?</small></a><a class="map-link entry" href="#mitmachen"><strong>Mitmachen</strong><small>Sammelstelle oder Sammler werden</small></a><a class="map-link entry" href="#abholung"><strong>Abholung anfragen</strong><small>Meine Sammeltonne ist voll</small></a><a class="map-link entry" href="#downloads"><strong>Flyer &amp; Downloads</strong><small>Offizielle Materialien zum Ausdrucken</small></a><a class="map-link entry" href="#herzensprojekte"><strong>Unsere Herzensprojekte</strong><small>Unterstützte Einrichtungen kennenlernen</small></a><a class="map-link entry" href="#sammeln"><strong>Was sammeln wir?</strong><small>Erlaubte und ungeeignete Materialien</small></a><a class="map-link entry" href="#kontakt-region"><strong>Kontakt &amp; Ansprechpartner</strong><small>Michael, Jan und Steffi direkt erreichen</small></a><a class="map-link entry" href="#verein"><strong>Über uns</strong><small>Informationen zur Sammelaktion</small></a><a class="map-link entry" href="#sponsoren"><strong>Unterstützen</strong><small>Als Sponsor den Verein kennenlernen</small></a>
 <a class="map-link entry" href="#installation"><strong>App installieren</strong><small>Mit Vereinslogo auf deinem Startbildschirm</small></a></nav>
@@ -198,6 +198,7 @@ main { max-width:1120px; }
 <footer><nav aria-label="Verein und Kontakt"><a href="https://www.kronkorken-kinderhospiz.de/"><svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg>Vereinswebsite</a><a href="mailto:info@kronkorken-kinderhospiz.de"><svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Kontakt</a><a href="https://www.instagram.com/kronkorken_kinderhospizev/"><img class="action-icon brand-icon" alt="" width="24" height="24" src="vereinsbild-3.webp">Instagram</a><a href="https://www.tiktok.com/@kronkorkenkinderhospiz24"><img class="action-icon brand-icon" alt="" width="24" height="24" src="vereinsbild-4.webp">TikTok</a></nav></footer></main>
 <script src="stations-data.js?v=20261119-8"></script>
 <script src="station-contact-links.js?v=20261119-10"></script>
+<script src="place-search.js?v=20261119-12"></script>
 <script>
 document.getElementById("hospice-query").addEventListener("input", event => {
  const query = event.target.value.trim().toLowerCase();
@@ -229,22 +230,41 @@ function findStations(origin, radius) {
 function stationContactText(element,text) {
  for(const part of window.VereinsStationContacts.tokens(text)){if(!part.href){element.append(document.createTextNode(part.text));continue;}const link=document.createElement('a');link.href=part.href;link.textContent=part.text;link.className='station-contact-link';link.setAttribute('aria-label',(part.href.startsWith('tel:')?'Anrufen: ':'E-Mail schreiben an: ')+part.text);element.append(link);}
 }
-function renderSearch() {
- const query = byId('address').value.trim().toLowerCase();
- const words = query.split(/\s+/).filter(Boolean);
- const match = words.length ? stationEntries.find(entry => words.every(word => (entry.name+' '+entry.address+' '+(entry.notes||'')).toLowerCase().includes(word))) : null;
- const origin = places[query] || places[query.split(/\s+/)[0]] || match?.point;
- const hits = findStations(Array.isArray(origin) ? origin : null, Number(byId('radius').value));
- byId('results').replaceChildren();
- const pins = byId('pins');
- pins.replaceChildren();
- byId('result-map').hidden = !hits.length;
- byId('search-status').textContent = hits.length ? hits.length+(hits.length===1?' Sammelstelle':' Sammelstellen')+' · Luftlinie ab Suchort oder passender Abgabestelle' : 'Keine passende Sammelstelle gefunden. Kontakt & Hilfe unterstützt dich gerne.';
+const placeConfig = fetch('./place-search-config.json',{cache:'no-store'}).then(response=>{if(!response.ok)throw Error();return response.json();});
+placeConfig.catch(()=>{});
+let searchSequence=0,searchController;
+function cancelStationSearch(){searchSequence++;searchController?.abort();byId('nearby').querySelector('button').disabled=false;byId('place-options').replaceChildren();byId('place-options').hidden=true;}
+async function renderSearch(){
+ cancelStationSearch();const sequence=searchSequence;const query=byId('address').value.trim();
+ byId('results').replaceChildren();byId('pins').replaceChildren();byId('result-map').hidden=true;
+ if(query.length<2){byId('search-status').textContent='Bitte einen Ortsnamen, eine PLZ oder eine Sammelstelle eingeben.';return;}
+ if(query.length>160){byId('search-status').textContent='Bitte nur Ort, Stadtteil, PLZ oder Sammelstellenname eingeben.';return;}
+ const matching=window.VereinsPlaceSearch.searchStations(stationEntries,query);
+ if(matching.length){showStationResults(matching[0].point,query,matching);return;}
+ const button=byId('nearby').querySelector('button');button.disabled=true;byId('search-status').textContent='Ort wird gesucht …';
+ searchController=new AbortController();const controller=searchController;const timer=setTimeout(()=>controller.abort(),15000);
+ try{const config=await placeConfig;const list=await window.VereinsPlaceSearch.lookup(query,config,controller.signal);if(sequence!==searchSequence)return;
+  if(!list.length){byId('search-status').textContent='Diesen Ort konnte die Ortssuche nicht zuordnen. Bitte ergänze eine nahe Stadt oder verwende die PLZ. Es wurde noch keine Entfernung berechnet.';return;}
+  const exact=window.VereinsPlaceSearch.exactCandidate(list,query);if(exact){showStationResults(exact.point,exact.label);return;}
+  byId('search-status').textContent='Welchen Ort meinst du? Bitte wähle den passenden Treffer.';const options=byId('place-options');options.hidden=false;
+  for(const place of list){const choice=document.createElement('button');choice.type='button';choice.textContent=place.label;choice.onclick=()=>{if(sequence!==searchSequence)return;options.hidden=true;options.replaceChildren();showStationResults(place.point,place.label);};options.append(choice);}
+ }catch(error){if(sequence===searchSequence)byId('search-status').textContent='Die Ortssuche ist gerade nicht erreichbar. Bitte versuche es erneut. Eine bekannte Sammelstelle kannst du weiterhin direkt über ihren Namen finden.';}
+ finally{clearTimeout(timer);if(sequence===searchSequence)button.disabled=false;}
+}
+function showStationResults(origin,label,directEntries=null){
+ const radius=Number(byId('radius').value);if(!allowedRadii.includes(radius))return;
+ const selection=directEntries?{hits:directEntries.map(entry=>({index:stationEntries.indexOf(entry),km:0})),fallback:false}:window.VereinsPlaceSearch.select(stationEntries,origin,radius),hits=selection.hits;
+ byId('results').replaceChildren();const pins=byId('pins');pins.replaceChildren();byId('result-map').hidden=!hits.length;
+ const km=value=>value.toFixed(1).replace('.',',');
+ byId('search-status').textContent=selection.fallback?(selection.nearest?'Im Umkreis von '+radius+' km um '+label+' wurde keine öffentliche Abgabemöglichkeit gefunden. Die nächste mögliche Sammelstelle ist '+km(selection.nearest.km)+' km entfernt. Hier sind die nächsten Möglichkeiten außerhalb des Umkreises; interne Stellen sind entsprechend gekennzeichnet.':'Keine öffentliche Abgabemöglichkeit hinterlegt. Kontakt & Hilfe unterstützt dich gerne.'):(hits.length+' Sammelstellen im Umkreis von '+radius+' km um '+label+'. Bitte beachte die Abgabehinweise.');
+ if(directEntries)byId('search-status').textContent=hits.length+' passende Sammelstellen für „'+label+'“. Für eine Umkreissuche bitte deinen Ort oder Stadtteil eingeben.';
+ else byId('search-status').textContent+=' · Entfernungen als Luftlinie ab dem erkannten Ortsmittelpunkt.';
+ const cos=Math.cos(origin[0]*Math.PI/180);const extent=Math.max(.02,...hits.map(row=>Math.max(Math.abs(stations[row.index][0]-origin[0]),Math.abs((stations[row.index][1]-origin[1])*cos))));const mapScale=40/extent;
  for (const {index,km} of hits) {
   const item = document.createElement('li');
   const detail = document.createElement('details');
   const title = document.createElement('summary');
-  title.textContent = stationEntries[index].name+' · '+km.toFixed(1).replace('.',',')+' km';
+  title.textContent = stationEntries[index].name+(directEntries?'':' · '+km.toFixed(1).replace('.',',')+' km');
   const badge = document.createElement('span');badge.className='station-notice '+(stationEntries[index].dropoffException?'exception':stationEntries[index].stationType==='intern'?'internal':'public');badge.textContent=stationEntries[index].notice;title.append(badge);
   const info = document.createElement('p');
   info.style.whiteSpace = 'pre-line';
@@ -270,13 +290,14 @@ function renderSearch() {
   pin.textContent = (entry.dropoffException?'▲ ':entry.stationType==='intern'?'◆ ':'● ')+String(index+1);
   pin.classList.add(entry.dropoffException?'station-exception':entry.stationType==='intern'?'station-internal':'station-public');
   pin.setAttribute('aria-label', title.textContent);
-  pin.style.left = (50 + (lon-origin[1])*Math.cos(origin[0]*Math.PI/180)*200) + '%';
-  pin.style.top = (50 - (lat-origin[0])*200) + '%';
+  pin.style.left = (50 + (lon-origin[1])*cos*mapScale) + '%';
+  pin.style.top = (50 - (lat-origin[0])*mapScale) + '%';
   pin.onclick = () => {detail.open=true;title.focus();};
   pins.append(pin);
  }
 }
 byId('nearby').addEventListener('submit',event=>{event.preventDefault();renderSearch();});
+byId('address').addEventListener('input',()=>{cancelStationSearch();byId('results').replaceChildren();byId('pins').replaceChildren();byId('result-map').hidden=true;byId('search-status').textContent='Bitte Suchen wählen, um passende Sammelstellen zu finden.';});
 for (const button of document.querySelectorAll('[data-test-place]')) {
  button.addEventListener('click', () => {
   byId('address').value = button.dataset.testPlace;
@@ -314,5 +335,5 @@ function showView() {
 window.addEventListener('hashchange', showView);
 showView();
 </script>
-<script type="module" src="enhancements.mjs?v=20261119-11"></script>
+<script type="module" src="enhancements.mjs?v=20261119-12"></script>
 </html>
