@@ -35,7 +35,7 @@
  function similar(a,b){if(a===b||b.startsWith(a)&&a.length>=4)return true;if(a.length<5||Math.abs(a.length-b.length)>1)return false;let i=0,j=0,edits=0;while(i<a.length&&j<b.length){if(a[i]===b[j]){i++;j++;continue;}if(++edits>1)return false;if(a.length>b.length)i++;else if(b.length>a.length)j++;else{i++;j++;}}return edits+(i<a.length||j<b.length?1:0)<=1;}
  function searchStations(entries,query){
   const q=normalize(query),parts=q.split(' ').filter(Boolean);if(!q||/^\d+$/.test(q))return [];
-  const explicitCategory=groups.find(group=>parts.some(part=>group.terms.includes(part)));
+  const explicitCategory=groups.find(group=>parts.some(part=>group.terms.includes(part)))||(parts.length===1&&!entries.some(entry=>normalize(entry.name).split(' ').includes(parts[0]))?groups.find(group=>group.terms.some(term=>similar(parts[0],term))):null);
   return entries.filter(entry=>{
    const name=normalize(entry.name),main=normalize(entry.name.split(' – ')[0]);const group=groups.filter(g=>g.pattern.test(name));
    if(explicitCategory&&!explicitCategory.pattern.test(name))return false;

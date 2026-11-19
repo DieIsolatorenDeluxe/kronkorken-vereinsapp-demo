@@ -24,3 +24,5 @@
 #view-return{position:sticky;top:12px;z-index:30;box-shadow:0 3px 14px #1a2b1630;align-self:flex-start}#view-return[hidden]{display:none!important}@media(max-width:600px){#view-return{top:8px;max-width:100%}}
 
 .place-search-note{font-size:.8rem;line-height:1.6;color:#66715c;margin-top:12px}.place-options{display:flex;flex-direction:column;gap:10px;margin:16px 0}.place-options button{text-align:left;justify-content:flex-start;width:100%;white-space:normal;padding:12px 16px}#search-status{line-height:1.8}
+
+.station-suggestion{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:16px;margin:16px 0;background:#f0f5e7;border-left:4px solid #7b934e;border-radius:8px}.station-suggestion p{margin:0;flex:1 1 220px}
