@@ -1,0 +1,32 @@
+[
+  {
+    "id": "michael-senz",
+    "name": "Michael Senz",
+    "first": "Michael",
+    "last": "Senz",
+    "scope": "Verein · bundesweit",
+    "phone": "+4915204936565",
+    "displayPhone": "0152 04936565",
+    "email": "info@kronkorken-kinderhospiz.de"
+  },
+  {
+    "id": "jan-sonneborn",
+    "name": "Jan Sonneborn",
+    "first": "Jan",
+    "last": "Sonneborn",
+    "scope": "Region Berlin / Brandenburg",
+    "phone": "+491749837499",
+    "displayPhone": "0174 9837499",
+    "email": "js.sonneborn@gmail.com",
+    "whatsapp": "491749837499"
+  },
+  {
+    "id": "steffi-sonneborn",
+    "name": "Steffi Sonneborn",
+    "first": "Steffi",
+    "last": "Sonneborn",
+    "scope": "Region Berlin / Brandenburg",
+    "email": "js.sonneborn@gmail.com",
+    "emailLabel": "Gemeinsame E-Mail an Jan & Steffi"
+  }
+]

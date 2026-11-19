@@ -1,0 +1,4 @@
+export const contactUrl=(contact,base='https://dieisolatorendeluxe.github.io/kronkorken-vereinsapp-demo/')=>new URL('./',base).href.split('#')[0].split('?')[0]+'#kontakt-'+contact.id;
+const escape=value=>String(value).replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/;/g,'\\;').replace(/,/g,'\\,');
+function fold(line){let result='',length=0;for(const char of line){const size=new TextEncoder().encode(char).length;if(length+size>75){result+='\r\n ';length=1;}result+=char;length+=size;}return result;}
+export function vcard(contact,base){return ['BEGIN:VCARD','VERSION:3.0','N:'+escape(contact.last)+';'+escape(contact.first)+';;;','FN:'+escape(contact.name),'ORG:Kronkorken fürs Kinderhospiz e. V.','TITLE:'+escape(contact.scope),...(contact.phone?['TEL;TYPE=CELL:'+contact.phone]:[]),'EMAIL;TYPE=INTERNET:'+contact.email,'URL:'+contactUrl(contact,base),'END:VCARD',''].map(fold).join('\r\n');}
