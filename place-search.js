@@ -49,7 +49,7 @@
  const memory=new Map();let lastRequest=0;
  async function lookup(query,config,signal){const key=normalize(query);const cached=memory.get(key);if(cached&&cached.until>Date.now())return cached.items;
   const wait=Math.max(0,1100-(Date.now()-lastRequest));if(wait)await new Promise(resolve=>setTimeout(resolve,wait));if(signal.aborted)throw new DOMException('Abgebrochen','AbortError');lastRequest=Date.now();
-  const url=new URL(config.endpoint);url.searchParams.set('q',query);url.searchParams.set('lang','de');url.searchParams.set('limit','6');url.searchParams.set('countrycode','DE');for(const layer of ['city','district','locality'])url.searchParams.append('layer',layer);
+  const url=new URL(config.endpoint);url.searchParams.set('q',query);url.searchParams.set('lang','de');url.searchParams.set('limit','6');url.searchParams.set('countrycode','DE');if(!/^\d{5}$/.test(query.trim()))for(const layer of ['city','district','locality'])url.searchParams.append('layer',layer);
   const response=await fetch(url,{signal,credentials:'omit',referrerPolicy:'strict-origin-when-cross-origin'});if(!response.ok)throw Error('Ortssuche nicht erreichbar');const data=await response.json();const items=candidates(data.features);if(memory.size>60)memory.delete(memory.keys().next().value);memory.set(key,{until:Date.now()+3600000,items});return items;
  }
  const api={normalize,distance,eligible,select,candidates,exactCandidate,stationMatch,searchStations,lookup};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.VereinsPlaceSearch=api;
