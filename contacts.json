@@ -29,5 +29,14 @@
     "scope": "Region Berlin / Brandenburg",
     "email": "js.sonneborn@gmail.com",
     "emailLabel": "Gemeinsame E-Mail an Jan & Steffi"
+  },
+  {
+    "id": "rene-schlonsinger",
+    "name": "René Schlonsinger",
+    "first": "René",
+    "last": "Schlonsinger",
+    "scope": "Betreuer · Velten und Umgebung",
+    "phone": "+491732339855",
+    "displayPhone": "+49 173 2339855"
   }
 ]
