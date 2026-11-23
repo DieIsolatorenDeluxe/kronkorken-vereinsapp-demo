@@ -27,7 +27,7 @@ export function validateRegistration(value, {signature=true, test=true}={}) {
   if(!['oeffentlich','vereinsintern'].includes(value.visibility))errors.visibility='Bitte die Sichtbarkeit auswählen.';
   if(value.visibility==='oeffentlich'&&(!value.permissions?.stationName||!value.permissions?.city||!value.consentMap))errors.permissions='Für einen sichtbaren Eintrag bitte Name der Einrichtung, PLZ / Ort und Karte / Website freigeben.';
   if(value.stationType==='oeffentlich'&&(value.visibility!=='oeffentlich'||!value.permissions?.address||!value.permissions?.stationName||!value.permissions?.city||!value.consentMap))errors.permissions=permissionNotice;
- }else if(value.registrationType==='sammler'&&(value.visibility!=='vereinsintern'||Object.values(value.permissions||{}).some(Boolean)||value.consentMap||value.consentSocial))errors.visibility='Sammler werden ausschließlich vereinsintern geführt.';
+ }else if(value.registrationType==='sammler'&&value.visibility!=='vereinsintern')errors.visibility='Sammler werden ausschließlich vereinsintern geführt.';
  if(signature){
   if(!Array.isArray(value.signature)||value.signature.length<1||value.signature.length>300||value.signature.some(stroke=>!Array.isArray(stroke)||stroke.length<2||stroke.length>2000||stroke.some(p=>!Array.isArray(p)||p.length!==2||p.some(n=>typeof n!=='number'||!Number.isFinite(n)||n<0||n>1))))errors.signature='Bitte im Unterschriftsfeld unterschreiben.';
  }
