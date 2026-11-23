@@ -8,7 +8,7 @@ export function validateRegistration(value, {signature=true, test=true}={}) {
  const errors={};
  const required=(key,label)=>{if(typeof value[key]!=='string'||!value[key].trim()) errors[key]=label+' bitte ausfüllen.';};
  for(const [key,label] of Object.entries({name:'Name / Ansprechpartner',street:'Straße und Hausnummer',postcode:'PLZ',city:'Ort',email:'E-Mail',phone:'Telefon',date:'Datum'}))required(key,label);
- if(!['sammler','sammelstelle'].includes(value.registrationType))errors.registrationType='Bitte Sammler oder Sammelstelle auswählen.';
+ if(!['sammler','sammelstelle','beides'].includes(value.registrationType))errors.registrationType='Bitte Sammler, Sammelstelle oder beides auswählen.';
  if(!/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(value.email||''))errors.email='Bitte eine gültige E-Mail-Adresse eingeben.';
  if(!/^\d{5}$/.test(value.postcode||''))errors.postcode='Bitte eine fünfstellige PLZ eingeben.';
  if(!/^[+\d ()\/-]{6,30}$/.test(value.phone||''))errors.phone='Bitte eine gültige Telefonnummer eingeben.';
@@ -18,7 +18,7 @@ export function validateRegistration(value, {signature=true, test=true}={}) {
  if(test&&value.fictional!==true)errors.fictional='In diesem Test bitte ausschließlich fiktive Angaben verwenden und bestätigen.';
  for(const key of ['consentMap','consentSocial'])if(value[key]!==undefined&&typeof value[key]!=='boolean')errors[key]='Bitte eine eindeutige Auswahl treffen.';
  if(!value.permissions||typeof value.permissions!=='object'||Array.isArray(value.permissions)||Object.values(value.permissions).some(v=>typeof v!=='boolean'))errors.permissions='Ungültige Veröffentlichungsfreigaben.';
- const station=value.registrationType==='sammelstelle';
+ const station=['sammelstelle','beides'].includes(value.registrationType);
  if(station){
   required('stationName','Name der Sammelstelle');
   if(!institutionTypes.includes(value.institutionType))errors.institutionType='Bitte die Einrichtungsart auswählen.';
@@ -36,7 +36,7 @@ export function validateRegistration(value, {signature=true, test=true}={}) {
 }
 // Only explicitly approved fields may leave the protected registration database.
 export function publicProjection(record){
- if(record.status!=='freigegeben'||record.registrationType!=='sammelstelle'||record.visibility!=='oeffentlich'||!record.consentMap||!record.permissions?.stationName||!record.permissions?.city)return null;
+ if(record.status!=='freigegeben'||!['sammelstelle','beides'].includes(record.registrationType)||record.visibility!=='oeffentlich'||!record.consentMap||!record.permissions?.stationName||!record.permissions?.city)return null;
  if(protectedTypes.has(record.institutionType)&&record.stationType!=='intern')return null;
  if(!['intern','oeffentlich'].includes(record.stationType))return null;
  if(record.stationType==='oeffentlich'&&!record.permissions?.address)return null;
