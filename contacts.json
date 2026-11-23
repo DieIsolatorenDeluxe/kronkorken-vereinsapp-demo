@@ -12,23 +12,18 @@
   },
   {
     "id": "jan-sonneborn",
-    "name": "Jan Sonneborn",
-    "first": "Jan",
+    "name": "Jan und Steffi Sonneborn",
+    "first": "Jan und Steffi",
     "last": "Sonneborn",
     "scope": "Region Berlin / Brandenburg",
     "phone": "+491749837499",
     "displayPhone": "0174 9837499",
     "email": "js.sonneborn@gmail.com",
-    "whatsapp": "491749837499"
-  },
-  {
-    "id": "steffi-sonneborn",
-    "name": "Steffi Sonneborn",
-    "first": "Steffi",
-    "last": "Sonneborn",
-    "scope": "Region Berlin / Brandenburg",
-    "email": "js.sonneborn@gmail.com",
-    "emailLabel": "Gemeinsame E-Mail an Jan & Steffi"
+    "whatsapp": "491749837499",
+    "emailLabel": "E-Mail an Jan & Steffi",
+    "aliases": [
+      "steffi-sonneborn"
+    ]
   },
   {
     "id": "rene-schlonsinger",
