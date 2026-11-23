@@ -309,7 +309,7 @@ byId("address").value = "";
 byId("search-status").textContent = "Ort, PLZ oder Name eingeben.";
 
 const viewGroups = {
- start:['abgabe'],
+ start:[],
  abgabe:['abgabe'],
  mitmachen:['mitmachen'],
  sammler:['mitmachen'],
@@ -326,7 +326,8 @@ const main = document.querySelector('main');
 const panels = [...main.children].filter(element => element.tagName === 'SECTION' || element.id === 'mitmachen');
 const menu = main.querySelector('.actions');
 function showView() {
- const key = location.hash.slice(1) || 'start';
+ const requested = location.hash.slice(1) || 'start';
+ const key = viewGroups[requested] || requested.startsWith('kontakt-') ? requested : 'start';
  const group = viewGroups[key] || viewGroups.start;
  for (const panel of panels) panel.hidden = !group.includes(panel.id);
  menu.hidden = key !== 'start';
