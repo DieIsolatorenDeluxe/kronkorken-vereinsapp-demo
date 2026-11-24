@@ -13,3 +13,6 @@ body::before{opacity:.045}main{width:100%;box-sizing:border-box}.app-home>.secti
 
 /* The watermark shares the content axis instead of the full-window axis. */
 body::before{left:0;right:0;background-position:center}@media(min-width:1000px){body::before{left:190px;right:0}}
+
+/* Reserve matching scrollbar space on both edges so the visible centre stays stable. */
+html{scrollbar-gutter:stable both-edges}
