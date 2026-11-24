@@ -1,0 +1,6 @@
+export const APP_ID='kronkorken-vereinsapp-demo';
+export const APP_PATH='/kronkorken-vereinsapp-demo/';
+export function validRelease(value){return value&&value.appId===APP_ID&&Number.isSafeInteger(value.build)&&value.build>0&&typeof value.version==='string'&&/^[0-9.]{1,40}$/.test(value.version);}
+export function newerRelease(current,candidate){return validRelease(current)&&validRelease(candidate)&&candidate.build>current.build;}
+export function safeUpdateUrl(currentHref,release){if(!validRelease(release))throw Error('Ungültige App-Version');const current=new URL(currentHref);if(current.origin!=='https://dieisolatorendeluxe.github.io'||current.pathname!==APP_PATH&&current.pathname!==APP_PATH+'index.html')throw Error('Falsche App-Adresse');const next=new URL(APP_PATH,current.origin);next.searchParams.set('app-version',String(release.build));if(/^#[a-z0-9-]+$/i.test(current.hash))next.hash=current.hash;return next;}
+export function matchesReleaseDocument(doc,release){return validRelease(release)&&doc.querySelector('meta[name="kronkorken-app-id"]')?.content===APP_ID&&doc.querySelector('meta[name="kronkorken-build"]')?.content===String(release.build)&&doc.querySelector('meta[name="kronkorken-version"]')?.content===release.version;}
