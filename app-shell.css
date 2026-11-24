@@ -19,3 +19,6 @@ html{scrollbar-gutter:stable both-edges}
 
 /* Original artwork: black becomes transparent, green lines and type stay original. */
 #app-home .home-brand>img,.club-bar .club-logo img{filter:url(#club-logo-transparent);border-radius:0;background:transparent}
+
+/* Clip only outside the original cap outline; retain every interior black/green pixel. */
+#app-home .home-brand>img,.club-bar .club-logo img{filter:none;clip-path:url(#club-logo-outline);background:transparent;border-radius:0}
