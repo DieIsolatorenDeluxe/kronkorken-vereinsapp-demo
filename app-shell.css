@@ -4,3 +4,6 @@
 body[data-station-open] #abgabe #nearby,body[data-station-open] #abgabe>.search-intro,body[data-station-open] #search-status,body[data-station-open] #station-suggestion,body[data-station-open] #place-options,body[data-station-open] #result-map{display:none!important}body[data-station-open] #results>li:not(.app-station-selected){display:none}body[data-station-open] #abgabe>h2{font-size:1rem;color:#718060;margin-bottom:12px}body[data-station-open] #results summary{font-size:1.3rem!important}body[data-station-open] #results{margin-top:0}body[data-station-open] #results li{border:0!important;background:transparent!important;padding:0!important}.app-tabs a:focus-visible{outline-offset:-3px}
 
 body::before{opacity:.045}main{width:100%;box-sizing:border-box}.app-home>.section-back{display:none}.club-bar nav>a:not(.club-logo){text-transform:none}#app-home .home-brand img{border-radius:50%}
+
+/* Keep both the masthead and the start logo on the content centre line. */
+.club-bar nav{justify-content:center}.club-bar .club-logo{flex:0 0 auto}.club-bar nav>a:not(.club-logo){flex:0 1 auto}#app-home .home-brand{display:flex;flex-direction:column;align-items:center;width:100%;box-sizing:border-box}#app-home .home-brand>img{float:none;align-self:center;flex-shrink:0;margin-left:auto;margin-right:auto;transform:none;object-position:center}
