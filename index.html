@@ -11,6 +11,7 @@
 <meta name="apple-mobile-web-app-title" content="Kronkorken">
 <title>Kronkorken sammeln · Demoversion</title>
 <link rel="stylesheet" href="enhancements.css?v=20261123-23">
+<link rel="stylesheet" href="app-shell.css?v=20261124-25">
 <style>
 * { box-sizing: border-box; }
 body { margin: 0; background: #f3f5ee; color: #163326; font: 16px/1.55 system-ui, sans-serif; }
@@ -167,12 +168,13 @@ main { max-width:1120px; }
 #hospice-results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:18px 0} #hospice-results article{border:1px solid #d7dfcd;border-top:4px solid #7b934e;border-radius:14px;padding:22px;background:rgba(255,255,255,.94);box-shadow:0 5px 18px #3246200b;min-width:0} #hospice-results h3{font-size:clamp(1.35rem,3vw,1.7rem);line-height:1.22;margin:12px 0} .project-kind{text-transform:uppercase;letter-spacing:.08em;font-size:.75rem;font-weight:bold;color:#536937}.project-place{color:#52604b;margin:0 0 18px}.project-warning{display:inline-block;font-size:.82rem;color:#8b3026;background:#fff1ed;padding:7px 10px;border-radius:6px}.project-count{font-size:.9rem;color:#52604b}#hospice-query{box-sizing:border-box;border:1px solid #a8b991;border-radius:9px;min-height:48px} @media(max-width:600px){#hospice-results{grid-template-columns:1fr;gap:12px}#hospice-results article{padding:18px}}
 </style>
 <div class="club-bar"><nav aria-label="Hauptnavigation"><a class="club-logo" href="#start" aria-label="Zur Startseite"><img alt="Vereinslogo" width="84" height="84" style="object-fit:contain" src="vereinsbild-1.webp"></a><a href="#start">Kronkorken fürs Kinderhospiz</a><div><a href="#abgabe">Sammelstellen</a><a href="#verein">Über uns</a><a href="#kontakt-region">Kontakt &amp; Ansprechpartner</a></div></nav></div><header class="club-hero"><div><p class="badge">TESTVERSION · Vereins-App</p><h1>Kronkorken fürs Kinderhospiz e. V.</h1><p>Kleine Deckel. Große Hilfe.</p></div></header>
-<main id="start"><div id="view-return" hidden><a class="map-link" href="#start">← Zur Übersicht</a></div>
+<nav class="app-tabs" aria-label="App-Navigation"><a href="#start"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg><span>Start</span></a><a href="#abgabe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>Finden</span></a><a href="#mitmachen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg><span>Mitmachen</span></a><a href="#mehr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/></svg><span>Mehr</span></a></nav><main id="start"><div id="view-return" hidden><a class="map-link" href="#start">← Zur Übersicht</a></div>
 
+<section id="app-home" class="app-home"><div class="home-brand"><img src="vereinsbild-1.webp" alt="Kronkorken fürs Kinderhospiz e. V." width="96" height="96"><p class="eyebrow">Gemeinsam helfen</p><h2>Kleine Deckel.<br>Große Hilfe.</h2><p>Finde deine Abgabemöglichkeit.<br>Mach aus gesammelten Deckeln Hilfe.</p></div><a class="home-find" href="#abgabe"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span><strong>Sammelstelle finden</strong><small>Ort oder PLZ eingeben und los</small></span><span aria-hidden="true">→</span></a><div class="home-shortcuts"><a href="#mitmachen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg><strong>Mitmachen</strong><small>Sammeln &amp; Sammelstelle werden</small></a><a href="#herzensprojekte"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg><strong>Für wen wir sammeln</strong><small>Die Kinder und ihre Familien</small></a></div><a class="home-rules" href="#sammeln"><span>Was darf in die Sammlung?</span><span aria-hidden="true">→</span></a><p class="home-test">Vereins-App · Testversion</p></section>
 <section id="abgabe"><h2>Sammelstelle finden</h2><p class="search-intro">Finde eine Abgabemöglichkeit in deiner Nähe.</p>
 <form id="nearby"><label for="address">PLZ, Ort oder Sammelstelle</label><div class="search-row"><input id="address" type="search" required placeholder="z. B. 16321 oder Berlin-Grünau"><button type="submit">Suchen</button></div><details class="search-settings"><summary>Suche anpassen &amp; Hilfe</summary><label for="radius">Umkreis <select id="radius"><option>5</option><option selected>10</option><option>15</option><option>25</option></select> km</label><p>Auch Begriffe wie „Kita“, „Gartenbau“ oder „Autohaus“ funktionieren. Öffne einen Treffer für Adresse, Kontakt und Abgabehinweise.</p><p id="search-privacy-info" class="place-search-note">Unbekannte Orte werden erst beim Suchen an Photon/komoot übermittelt. Ortsdaten: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap-Mitwirkende</a>.</p></details><p class="search-privacy">Ortssuche über Photon/komoot · <button type="button" class="search-privacy-toggle" onclick="this.closest('form').querySelector('details').open=true;this.closest('form').querySelector('details summary').focus()">Hinweise</button></p></form>
 <p id="search-status" role="status" aria-live="polite"></p><div id="place-options" class="place-options" hidden></div><div id="station-suggestion" class="station-suggestion" hidden></div><ol id="results"></ol><details id="result-map" hidden><summary>Treffer auf der Karte ansehen</summary><p>● Öffentlich · ◆ Intern / eingeschränkt · ▲ Abgabe nach besonderer Regelung · Schematische Karte · Norden oben</p><div id="pins"></div></details><div class="button-row search-return"><a class="map-link" href="#start">← Zur Übersicht</a><a href="#kontakt-region">Kontakt &amp; Hilfe</a></div></section>
-<nav class="actions" aria-label="Hauptfunktionen">
+<nav class="actions" aria-label="Weitere Funktionen"><h2>Mehr entdecken</h2>
 <a class="map-link entry" href="#abgabe"><strong>Sammelstelle finden</strong><small>Wo kann ich Kronkorken abgeben?</small></a><a class="map-link entry" href="#mitmachen"><strong>Mitmachen</strong><small>Sammelstelle oder Sammler werden</small></a><a class="map-link entry" href="#abholung"><strong>Abholung anfragen</strong><small>Meine Sammeltonne ist voll</small></a><a class="map-link entry" href="#downloads"><strong>Flyer &amp; Downloads</strong><small>Offizielle Materialien zum Ausdrucken</small></a><a class="map-link entry" href="#herzensprojekte"><strong>Unsere Herzensprojekte</strong><small>Unterstützte Einrichtungen kennenlernen</small></a><a class="map-link entry" href="#sammeln"><strong>Was sammeln wir?</strong><small>Erlaubte und ungeeignete Materialien</small></a><a class="map-link entry" href="#kontakt-region"><strong>Kontakt &amp; Ansprechpartner</strong><small>Verein und regionale Ansprechpartner</small></a><a class="map-link entry" href="#verein"><strong>Über uns</strong><small>Informationen zur Sammelaktion</small></a><a class="map-link entry" href="#sponsoren"><strong>Unterstützen</strong><small>Als Sponsor den Verein kennenlernen</small></a>
 <a class="map-link entry" href="#installation"><strong>App installieren</strong><small>Mit Vereinslogo auf deinem Startbildschirm</small></a></nav>
 
@@ -309,7 +311,8 @@ byId("address").value = "";
 byId("search-status").textContent = "Ort, PLZ oder Name eingeben.";
 
 const viewGroups = {
- start:[],
+ start:['app-home'],
+ mehr:[],
  abgabe:['abgabe'],
  mitmachen:['mitmachen'],
  sammler:['mitmachen'],
@@ -330,7 +333,9 @@ function showView() {
  const key = viewGroups[requested] || requested.startsWith('kontakt-') ? requested : 'start';
  const group = viewGroups[key] || viewGroups.start;
  for (const panel of panels) panel.hidden = !group.includes(panel.id);
- menu.hidden = key !== 'start';
+ menu.hidden = key !== 'mehr';
+ document.body.dataset.appView=key;
+ document.querySelectorAll('.app-tabs a').forEach(link=>{const tab=key==='start'?'start':key==='abgabe'||key==='unterstuetzer'?'abgabe':['mitmachen','sammler','sammelstelle'].includes(key)?'mitmachen':'mehr';if(link.getAttribute('href')==='#'+tab)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');});
  byId('view-return').hidden = key === 'start';
  if (key !== 'start') byId('view-return').scrollIntoView({block:'start'});
 }
@@ -338,4 +343,5 @@ window.addEventListener('hashchange', showView);
 showView();
 </script>
 <script type="module" src="enhancements.mjs?v=20261123-24"></script>
+<script type="module" src="app-shell.mjs?v=20261124-25"></script>
 </html>
