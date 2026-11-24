@@ -7,3 +7,6 @@ body::before{opacity:.045}main{width:100%;box-sizing:border-box}.app-home>.secti
 
 /* Keep both the masthead and the start logo on the content centre line. */
 .club-bar nav{justify-content:center}.club-bar .club-logo{flex:0 0 auto}.club-bar nav>a:not(.club-logo){flex:0 1 auto}#app-home .home-brand{display:flex;flex-direction:column;align-items:center;width:100%;box-sizing:border-box}#app-home .home-brand>img{float:none;align-self:center;flex-shrink:0;margin-left:auto;margin-right:auto;transform:none;object-position:center}
+
+/* Centre the logo itself, with the name underneath rather than beside it. */
+.club-bar nav{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:10px 16px}.club-bar .club-logo{margin:0 auto!important;align-self:center}.club-bar nav>a:not(.club-logo){text-align:center;max-width:none;margin:0 auto;font-size:.86rem;line-height:1.3}.club-bar .club-logo img{display:block;margin:0 auto!important;float:none;transform:none}
