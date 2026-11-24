@@ -16,3 +16,6 @@ body::before{left:0;right:0;background-position:center}@media(min-width:1000px){
 
 /* Reserve matching scrollbar space on both edges so the visible centre stays stable. */
 html{scrollbar-gutter:stable both-edges}
+
+/* Original artwork: black becomes transparent, green lines and type stay original. */
+#app-home .home-brand>img,.club-bar .club-logo img{filter:url(#club-logo-transparent);border-radius:0;background:transparent}
